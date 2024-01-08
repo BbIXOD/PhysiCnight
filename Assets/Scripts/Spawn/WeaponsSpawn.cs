@@ -9,6 +9,8 @@ public class WeaponsSpawn : MonoBehaviour
         WeaponFolder = "Weapons/",
         LeftHandProperty = "LeftHand",
         RightHandProperty = "RightHand";
+
+    private Rigidbody2D _rb;
     
     [SerializeField]private float WeaponOffset = 0.5f;
 
@@ -18,6 +20,8 @@ public class WeaponsSpawn : MonoBehaviour
         _view = GetComponent<PhotonView>();
 
         if (!_view.IsMine) return;
+
+        _rb = GetComponent<Rigidbody2D>();
 
         var left = PlayerPrefs.GetString(LeftHandProperty);
         var right = PlayerPrefs.GetString(RightHandProperty);
@@ -33,8 +37,11 @@ public class WeaponsSpawn : MonoBehaviour
 
         weapon.transform.SetParent(transform, false);
 
+        var joint = weapon.AddComponent<RelativeJoint2D>();
+        joint.connectedBody = _rb; //TODO: Move config to function
+
         weapon.GetComponent<Activator>().input = GetComponent<InputHandler>();
-        weapon.GetComponent<WeaponInfo>().isLeftHand = left;
+        weapon.GetComponent<WeaponData>().isLeftHand = left;
         
 
         if (left) _view.RPC(nameof(Resize), RpcTarget.All, weapon.GetComponent<PhotonView>().ViewID);

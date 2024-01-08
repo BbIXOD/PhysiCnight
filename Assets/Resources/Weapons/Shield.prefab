@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2189109316673793043}
   - component: {fileID: 884978495965488533}
-  - component: {fileID: 1956957688873409471}
   m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
@@ -85,32 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1956957688873409471
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7091648074146013147}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.008540645, y: 0.07900136}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8462677, y: 0.10749857}
-  m_EdgeRadius: 0
 --- !u!1 &7235406995552962493
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +95,6 @@ GameObject:
   - component: {fileID: 2963904012216064257}
   - component: {fileID: 3822774100652957287}
   - component: {fileID: 465143538038257963}
-  - component: {fileID: 2961391894780443185}
   - component: {fileID: 4931001175057708132}
   - component: {fileID: 2935679935133313962}
   - component: {fileID: 7171456339469898897}
@@ -134,7 +106,8 @@ GameObject:
   - component: {fileID: -5251852843188136547}
   - component: {fileID: 5609616086432630303}
   - component: {fileID: 1169331221135866994}
-  m_Layer: 0
+  - component: {fileID: 7773889087866401817}
+  m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,11 +138,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7235406995552962493}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 100
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -192,20 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 500
   duration: 300
---- !u!114 &2961391894780443185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235406995552962493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20837c4eb7c62aa42bec9861cf67772a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  duration: 500
 --- !u!114 &4931001175057708132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   duration: 100
-  force: 10
+  force: 800
 --- !u!114 &2935679935133313962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b779b299280bef84cba139e6414eb56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: 1
   input: {fileID: 0}
   cooldown: 1000
 --- !u!114 &-3007490533311169001
@@ -303,7 +261,7 @@ MonoBehaviour:
     status: 2
   - component: {fileID: 4931001175057708132}
     status: 2
-  - component: {fileID: 2961391894780443185}
+  - component: {fileID: 0}
     status: 2
   - component: {fileID: 465143538038257963}
     status: 2
@@ -388,3 +346,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.071912244, y: 0.57296574}
   m_EdgeRadius: 0
+--- !u!114 &7773889087866401817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235406995552962493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6174b02896cfa294aaab1ea5e14dda15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jointForce: 1000
+  jointTorque: 1000
+  jointCorScale: 0.3

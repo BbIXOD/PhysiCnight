@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-[RequireComponent(typeof(WeaponInfo))]
+[RequireComponent(typeof(WeaponData))]
 public class Activator : MonoBehaviour
 {
     private bool leftHand;
@@ -16,7 +16,7 @@ public class Activator : MonoBehaviour
         usables ??= GetComponents<IUsable>();
         input ??= transform.root.GetComponent<InputHandler>();
 
-        leftHand = GetComponent<WeaponInfo>().isLeftHand;
+        leftHand = GetComponent<WeaponData>().isLeftHand;
     }
 
     private void Update() {

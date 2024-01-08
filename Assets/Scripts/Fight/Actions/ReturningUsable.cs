@@ -8,26 +8,28 @@ public class ReturningUsable : BasicAction
     private const float ToSeconds = 0.001f;
     private float _returnTime;
     private float _elapsed;
-    private Collider2D _collider;
 
-    private Vector3 _startPos;
+    private RelativeJoint2D _joint;
+
+    private Vector2 _startPos;
     private Quaternion _startRot;
 
-    public void Awake()
+    public IEnumerator Start()
     {
-        _startPos = transform.localPosition;
-        _startRot = transform.localRotation;
-        _collider = GetComponent<Collider2D>();
+        _joint = GetComponent<RelativeJoint2D>();
+
+        yield return null;
+        _startPos = _joint.linearOffset;
+        _startRot = Quaternion.Euler(0, 0, _joint.angularOffset);
         _returnTime = duration * ToSeconds;
     }
 
     private void Update() {
         if (!active) return;
         _elapsed += Time.deltaTime;
-        var localPos = Vector3.MoveTowards(transform.localPosition, _startPos, _elapsed / _returnTime);
-        var localRot = Quaternion.Lerp(transform.localRotation, _startRot, _elapsed / _returnTime);
-        
-        transform.SetLocalPositionAndRotation(localPos, localRot);
+        _joint.linearOffset = Vector2.MoveTowards(_joint.linearOffset, _startPos, _elapsed / _returnTime);
+        //var localRot = Quaternion.Lerp(Quaternion.Euler(0, 0, _joint.angularOffset), _startRot, _elapsed / _returnTime);
+        //_joint.angularOffset = localRot.eulerAngles.z;
     }
 
     protected override void StartAction() {

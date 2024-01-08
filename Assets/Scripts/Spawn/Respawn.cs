@@ -10,13 +10,13 @@ public class Respawn : MonoBehaviour, IDeathAction
 {
     private Vector3 position;
     private float rotation;
-    private Rigidbody2D _rb;
+    private Rigidbody2D[] _rb;
     private PhotonView _view;
     private Health _damagable;
 
 
     private void Start() {
-        _rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponentsInChildren<Rigidbody2D>();
         _view = GetComponent<PhotonView>();
         if (!PhotonNetwork.IsMasterClient) return;
         position = transform.position;
@@ -32,8 +32,10 @@ public class Respawn : MonoBehaviour, IDeathAction
 
     [PunRPC]
     protected void RespawnRPC(Vector3 pos, float rot) {
-        _rb.position = pos;
-        _rb.rotation = rot;
+        foreach (var rb in _rb) {
+            rb.position = pos;
+            rb.rotation = rot;
+        }
         /*
         Debug.Log($"Respawn at {pos}");
         gameObject.SetActive(false);
