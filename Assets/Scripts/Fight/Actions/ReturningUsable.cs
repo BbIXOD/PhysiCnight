@@ -18,7 +18,7 @@ public class ReturningUsable : BasicAction
     {
         _joint = GetComponent<RelativeJoint2D>();
 
-        yield return null;
+        yield return new WaitForFixedUpdate();
         _startPos = _joint.linearOffset;
         _startRot = Quaternion.Euler(0, 0, _joint.angularOffset);
         _returnTime = duration * ToSeconds;

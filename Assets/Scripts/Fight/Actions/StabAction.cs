@@ -18,7 +18,7 @@ public class StabAction : BasicAction
         _rb = GetComponent<Rigidbody2D>();
         _joint = GetComponent<RelativeJoint2D>();
 
-        yield return null;
+        yield return new WaitForFixedUpdate();
         _basicOffset = _joint.linearOffset;
     }
     
