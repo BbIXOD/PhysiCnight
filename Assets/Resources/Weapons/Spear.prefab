@@ -412,6 +412,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b9b48625307be49aa5f9065bdbf329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 0}
-  data: {fileID: 5005296208862593624}
-  activator: {fileID: 151812167869258057}
