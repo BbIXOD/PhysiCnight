@@ -17,7 +17,7 @@ public class PlayerSpawn : MonoBehaviour
         _view = GetComponent<PhotonView>();
         
         if (PhotonNetwork.IsMasterClient) {
-            points = new ();
+            points = new();
             for (int i = 0; i < transform.childCount; i++) {
                 points.Add(transform.GetChild(i));
             }
@@ -45,10 +45,12 @@ public class PlayerSpawn : MonoBehaviour
 
     private void ConnectInput(Player sender, GameObject handler) {
         var inputObject = ConnectInput(handler);
+        inputObject.AddComponent<EnableAfterTransfer>();
         inputObject.GetComponent<PhotonView>().TransferOwnership(sender);
     }
 
     private GameObject ConnectInput(GameObject handler) {
+
         var inputObject = PhotonNetwork.Instantiate(HelperRes, Vector3.zero, Quaternion.identity);
         inputObject.GetComponent<BasicInput>().handler = handler.GetComponent<InputHandler>();
         return inputObject;

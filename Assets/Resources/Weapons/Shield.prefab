@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 2963904012216064257}
   - component: {fileID: 3822774100652957287}
   - component: {fileID: 465143538038257963}
-  - component: {fileID: 4931001175057708132}
   - component: {fileID: 2935679935133313962}
   - component: {fileID: -3007490533311169001}
   - component: {fileID: 5249047477498971232}
@@ -172,21 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 500
   duration: 300
---- !u!114 &4931001175057708132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235406995552962493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffe79e446189faa42a8b593176b4d85f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0
-  duration: 100
-  force: 800
 --- !u!114 &2935679935133313962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,8 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0
-  duration: 100
-  rotationSpeed: 100
+  duration: 200
+  finalOffset: 90
 --- !u!114 &-3007490533311169001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   components:
-  - component: {fileID: 4931001175057708132}
-    status: 2
   - component: {fileID: 465143538038257963}
     status: 2
   - component: {fileID: 2935679935133313962}

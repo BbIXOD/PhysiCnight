@@ -16,7 +16,6 @@ public class InputActionCall : MonoBehaviour
 
     public void FixedUpdate() {
         if (data.isLeftHand ? input.leftHand : input.rightHand) {
-            Debug.Log("Activate");
             activator.TryActivate();
         }
     }

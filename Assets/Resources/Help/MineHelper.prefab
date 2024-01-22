@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4962118504431790358}
   - component: {fileID: -3547559197617248874}
   - component: {fileID: 2161019184023591973}
+  - component: {fileID: -280806572701392673}
   m_Layer: 0
   m_Name: MineHelper
   m_TagString: Untagged
@@ -117,3 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86d9633c72339949a3f9ed623bc2eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-280806572701392673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3129678896937411990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e38011279b99c048a1617fe22cfa61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponOffset: 0.6

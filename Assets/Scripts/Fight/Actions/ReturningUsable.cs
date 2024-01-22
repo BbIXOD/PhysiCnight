@@ -12,7 +12,7 @@ public class ReturningUsable : BasicAction
     private RelativeJoint2D _joint;
 
     private Vector2 _startPos;
-    private Quaternion _startRot;
+    private float _startRot;
 
     public IEnumerator Start()
     {
@@ -20,16 +20,15 @@ public class ReturningUsable : BasicAction
 
         yield return new WaitForFixedUpdate();
         _startPos = _joint.linearOffset;
-        _startRot = Quaternion.Euler(0, 0, _joint.angularOffset);
+        _startRot = _joint.angularOffset;
         _returnTime = duration * ToSeconds;
     }
 
     private void Update() {
         if (!active) return;
         _elapsed += Time.deltaTime;
-        _joint.linearOffset = Vector2.MoveTowards(_joint.linearOffset, _startPos, _elapsed / _returnTime);
-        //var localRot = Quaternion.Lerp(Quaternion.Euler(0, 0, _joint.angularOffset), _startRot, _elapsed / _returnTime);
-        //_joint.angularOffset = localRot.eulerAngles.z;
+        _joint.linearOffset = Vector2.Lerp(_joint.linearOffset, _startPos, _elapsed / _returnTime);
+        _joint.angularOffset = Mathf.Lerp(_joint.angularOffset, _startRot, _elapsed / _returnTime);
     }
 
     protected override void StartAction() {
