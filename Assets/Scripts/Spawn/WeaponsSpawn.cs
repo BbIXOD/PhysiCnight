@@ -40,7 +40,7 @@ public class WeaponsSpawn : MonoBehaviour
         var joint = weapon.AddComponent<RelativeJoint2D>();
         joint.connectedBody = _rb; //TODO: Move config to function
 
-        weapon.GetComponent<Activator>().input = GetComponent<InputHandler>();
+        weapon.GetComponent<InputActionCall>().input = GetComponent<InputHandler>();
         weapon.GetComponent<WeaponData>().isLeftHand = left;
         
 
