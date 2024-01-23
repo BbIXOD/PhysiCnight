@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -32,12 +33,17 @@ public class WeaponsSpawn : MonoBehaviour
             .Instantiate(name, Vector3.zero + Vector3.left * WeaponOffset * (left ? 1 : -1), Quaternion.identity);
 
         weapon.transform.SetParent(transform.root, false);
-
-        var joint = weapon.AddComponent<RelativeJoint2D>();
-        joint.connectedBody = transform.root.GetComponent<Rigidbody2D>(); //TODO: Move config to function
-
-        weapon.GetComponent<InputActionCall>().input = transform.root.GetComponent<InputHandler>();
-        weapon.GetComponent<WeaponData>().isLeftHand = left;
+        try{
+            var joint = weapon.AddComponent<RelativeJoint2D>();
+            joint.connectedBody = transform.root.GetComponent<Rigidbody2D>(); //TODO: Move config to function
+        }
+        catch (Exception e) {
+            Debug.LogError(e);
+        }
+        var hasInput = weapon.TryGetComponent<InputActionCall>(out var input);
+        var hasData = weapon.TryGetComponent<WeaponData>(out var data);
+        if (hasInput) input.input = transform.root.GetComponent<InputHandler>();
+        if (hasData) data.isLeftHand = left;
         
         if (left) GetComponent<PhotonView>().RPC(nameof(Resize), RpcTarget.All, weapon.GetComponent<PhotonView>().ViewID, left);
         // _view.RPC(nameof(MakeChild), RpcTarget.Others, weapon.GetComponent<PhotonView>().ViewID);
