@@ -31,9 +31,10 @@ public class ComboActivator : Activator
         if (Step < container.Length - 1) Step++;
         else Step = 0;
         _ready = false;
-        _timer.Stop();
+        _timer?.Stop();
         _timer = new Timer(comboStopCooldown);
         _timer.Elapsed += ResetCombo;
+        _timer.Start();
         await Task.Delay(cooldowns[Step]);
         _ready = true;
     }

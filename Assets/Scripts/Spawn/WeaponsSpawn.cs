@@ -30,7 +30,7 @@ public class WeaponsSpawn : MonoBehaviour
     [PunRPC]
     protected void SpawnWeapon(string name, bool left) {
         var weapon = PhotonNetwork
-            .Instantiate(name, Vector3.zero + Vector3.left * WeaponOffset * (left ? 1 : -1), Quaternion.identity);
+            .Instantiate(name, Vector3.zero + (left ? Vector3.left : Vector3.right) * WeaponOffset, Quaternion.identity);
 
         weapon.transform.SetParent(transform.root, false);
         try{
@@ -59,7 +59,7 @@ public class WeaponsSpawn : MonoBehaviour
     protected void Resize(int weaponId, bool left) {
         var weapon = PhotonView.Find(weaponId);
         var newScale = weapon.transform.localScale;
-        newScale.x *= left ? -1 : 1;
+        newScale.x *= left ? 1 : -1;
         weapon.transform.localScale = newScale;
     }
 }
