@@ -33,8 +33,10 @@ public class Respawn : MonoBehaviour, IDeathAction
     [PunRPC]
     protected void RespawnRPC(Vector3 pos, float rot) {
         foreach (var rb in _rb) {
+            rb.isKinematic = true;
             rb.position = pos;
             rb.rotation = rot;
+            rb.isKinematic = false;
         }
         /*
         Debug.Log($"Respawn at {pos}");

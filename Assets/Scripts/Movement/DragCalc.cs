@@ -16,6 +16,7 @@ public class DragCalc : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _data = GetComponent<PlayerMoveData>();
         _health = GetComponent<Health>();
+        _health.onTakeDamage += Action;
         _input = GetComponent<InputHandler>();
     }
 
@@ -25,7 +26,7 @@ public class DragCalc : MonoBehaviour
         _rb.drag = _input.moveDir == Vector2.zero ? _data.idleDrag : _data.moveDrag;
     }
 
-    private async void Action() {
+    private async void Action(int _) {
         _injured = true;
         _rb.drag = _data.onDamageDrag;
         await Task.Delay(injureTime);

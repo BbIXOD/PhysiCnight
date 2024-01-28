@@ -10,8 +10,6 @@ public class WeaponsSpawn : MonoBehaviour
         WeaponFolder = "Weapons/",
         LeftHandProperty = "LeftHand",
         RightHandProperty = "RightHand";
-    
-    [SerializeField]private float WeaponOffset = 0.5f;
 
     private PhotonView _view;
 
@@ -30,7 +28,7 @@ public class WeaponsSpawn : MonoBehaviour
     [PunRPC]
     protected void SpawnWeapon(string name, bool left) {
         var weapon = PhotonNetwork
-            .Instantiate(name, Vector3.zero + (left ? Vector3.left : Vector3.right) * WeaponOffset, Quaternion.identity);
+            .Instantiate(name, Vector3.zero, Quaternion.identity);
 
         weapon.transform.SetParent(transform.root, false);
         try{
@@ -45,7 +43,7 @@ public class WeaponsSpawn : MonoBehaviour
         if (hasInput) input.input = transform.root.GetComponent<InputHandler>();
         if (hasData) data.isLeftHand = left;
         
-        if (left) GetComponent<PhotonView>().RPC(nameof(Resize), RpcTarget.All, weapon.GetComponent<PhotonView>().ViewID, left);
+        //if (left) GetComponent<PhotonView>().RPC(nameof(Resize), RpcTarget.All, weapon.GetComponent<PhotonView>().ViewID, left);
         // _view.RPC(nameof(MakeChild), RpcTarget.Others, weapon.GetComponent<PhotonView>().ViewID);
     }
 
@@ -59,7 +57,7 @@ public class WeaponsSpawn : MonoBehaviour
     protected void Resize(int weaponId, bool left) {
         var weapon = PhotonView.Find(weaponId);
         var newScale = weapon.transform.localScale;
-        newScale.x *= left ? 1 : -1;
+        newScale.x *= -1;
         weapon.transform.localScale = newScale;
     }
 }

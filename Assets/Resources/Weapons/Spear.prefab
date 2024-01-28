@@ -102,12 +102,12 @@ GameObject:
   - component: {fileID: -9088970461538499853}
   - component: {fileID: 6986014166788868174}
   - component: {fileID: -5251852843188136547}
-  - component: {fileID: -3439479559012694063}
   - component: {fileID: 5609616086432630303}
   - component: {fileID: 5005296208862593624}
   - component: {fileID: 2941788401789043895}
   - component: {fileID: 151812167869258057}
   - component: {fileID: -8517161768786699492}
+  - component: {fileID: -485826627464342782}
   m_Layer: 6
   m_Name: Spear
   m_TagString: Untagged
@@ -193,8 +193,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 50
+  m_Mass: 15
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -322,19 +322,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
---- !u!114 &-3439479559012694063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235406995552962493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa81bcf52e72e5d46bb3522d9c985ac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!114 &5609616086432630303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,9 +347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6174b02896cfa294aaab1ea5e14dda15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jointForce: 10000
-  jointTorque: 10000
+  jointForce: 2000
+  jointTorque: 600
   jointCorScale: 0.3
+  positionOffset: {x: 0.6, y: 0}
 --- !u!114 &2941788401789043895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,3 +388,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b9b48625307be49aa5f9065bdbf329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-485826627464342782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235406995552962493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca21ce61965032b4a8af7f61fe26e11a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 10

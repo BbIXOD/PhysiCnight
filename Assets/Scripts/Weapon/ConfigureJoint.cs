@@ -16,5 +16,7 @@ public class ConfigureJoint : MonoBehaviour
         _joint.maxForce = _data.jointForce;
         _joint.maxTorque = _data.jointTorque;
         _joint.correctionScale = _data.jointCorScale;
+        _joint.angularOffset = _data.isLeftHand ? 0 : 180;
+        _joint.linearOffset = _data.positionOffset;
     }
 }

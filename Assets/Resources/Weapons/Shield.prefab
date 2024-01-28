@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7773889087866401817}
   - component: {fileID: 8743866346364413923}
   - component: {fileID: -1615285854424467654}
+  - component: {fileID: -5229927864446737328}
   m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
@@ -142,8 +143,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
-  m_Mass: 5
-  m_LinearDrag: 100
+  m_Mass: 20
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -350,9 +351,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6174b02896cfa294aaab1ea5e14dda15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jointForce: 1000
-  jointTorque: 1000
+  jointForce: 2000
+  jointTorque: 600
   jointCorScale: 0.3
+  positionOffset: {x: 0.6, y: 0}
 --- !u!114 &8743866346364413923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,5 +378,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4b9b48625307be49aa5f9065bdbf329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5229927864446737328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235406995552962493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097d53c941ba5cb4eae0a7ed6ad845f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

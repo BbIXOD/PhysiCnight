@@ -16,6 +16,6 @@ public class RotationAction : MoveAction<float>
 
     protected override void SetParams() {
         basicOffset = joint.angularOffset;
-        finalOffset *= GetComponent<WeaponData>().isLeftHand ? 1 : -1;
+        //finalOffset *= GetComponent<WeaponData>().isLeftHand ? 1 : -1;
     }
 }
