@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Maps/Fields.unity
     guid: 4a3e700c322e79c4ab789f277f66e3dc
+  - enabled: 1
+    path: Assets/Scenes/Maps/Arena.unity
+    guid: 198c1dc127dd166449777f599668f44c
   m_configObjects: {}

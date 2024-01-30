@@ -18,6 +18,6 @@ public class StabAction : MoveAction<Vector2>
 
     protected override void SetParams() {
         basicOffset = joint.linearOffset;
-        finalOffset.x *= GetComponent<WeaponData>().isLeftHand ? 1 : -1;
+        finalOffset.x *= GetComponent<WeaponData>().isLeftHand ? -1 : 1;
     }
 }

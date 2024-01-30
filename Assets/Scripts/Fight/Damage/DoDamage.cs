@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoDamage : MonoBehaviour
+public class DoDamage : ParamSettable<int>
 {
-    [SerializeField] private int damage = 1;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -18,7 +17,7 @@ public class DoDamage : MonoBehaviour
     private void Do(Collider2D col) {
         if (col.gameObject.TryGetComponent<IDamagable>(out var damagable))
         {
-            damagable.TakeDamage(damage);
+            damagable.TakeDamage(param);
         }
     }
 }

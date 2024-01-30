@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 8743866346364413923}
   - component: {fileID: -1615285854424467654}
   - component: {fileID: -5229927864446737328}
+  - component: {fileID: 760601675558825426}
   m_Layer: 6
   m_Name: Shield
   m_TagString: Untagged
@@ -170,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294f7581253def043a0741d753c1bd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 500
+  delay: 1000
   duration: 300
 --- !u!114 &2935679935133313962
 MonoBehaviour:
@@ -187,6 +188,7 @@ MonoBehaviour:
   delay: 0
   duration: 200
   finalOffset: 90
+  mirror: 1
 --- !u!114 &-3007490533311169001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +243,8 @@ MonoBehaviour:
     status: 2
   - component: {fileID: -1615285854424467654}
     status: 2
+  - component: {fileID: -5229927864446737328}
+    status: 2
 --- !u!114 &-9088970461538499853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071908d4e36c1674fa720c3fd2860c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 15000
+  param: 0
 --- !u!61 &1169331221135866994
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,10 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6174b02896cfa294aaab1ea5e14dda15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jointForce: 2000
-  jointTorque: 600
-  jointCorScale: 0.3
-  positionOffset: {x: 0.6, y: 0}
+  info: {fileID: 11400000, guid: 88cb03bc346cd2649b45ca5518dee664, type: 2}
 --- !u!114 &8743866346364413923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a12d7782584284ab447da3eafae3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rechargeTime: 1000
+  rechargeTime: 1300
 --- !u!114 &-1615285854424467654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,3 +393,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097d53c941ba5cb4eae0a7ed6ad845f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &760601675558825426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235406995552962493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15261f52d0c1d4f469efc572661eea52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: 0}
+  force: {fileID: 5609616086432630303}

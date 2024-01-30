@@ -43,7 +43,7 @@ public class WeaponsSpawn : MonoBehaviour
         if (hasInput) input.input = transform.root.GetComponent<InputHandler>();
         if (hasData) data.isLeftHand = left;
         
-        //if (left) GetComponent<PhotonView>().RPC(nameof(Resize), RpcTarget.All, weapon.GetComponent<PhotonView>().ViewID, left);
+        if (left) GetComponent<PhotonView>().RPC(nameof(Resize), RpcTarget.All, weapon.GetComponent<PhotonView>().ViewID);
         // _view.RPC(nameof(MakeChild), RpcTarget.Others, weapon.GetComponent<PhotonView>().ViewID);
     }
 
@@ -53,8 +53,8 @@ public class WeaponsSpawn : MonoBehaviour
         weapon.transform.SetParent(transform.root);
     }
 
-    [PunRPC]
-    protected void Resize(int weaponId, bool left) {
+    [PunRPC] //TODO: Move to other class
+    protected void Resize(int weaponId) {
         var weapon = PhotonView.Find(weaponId);
         var newScale = weapon.transform.localScale;
         newScale.x *= -1;

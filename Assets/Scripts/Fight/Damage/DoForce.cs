@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoForce : MonoBehaviour
+public class DoForce : ParamSettable<float>
 {
-    [SerializeField] private float force = 10.0f;
 
     private void OnTriggerEnter2D(Collider2D collision) {
         Do(collision.transform);
@@ -17,7 +16,7 @@ public class DoForce : MonoBehaviour
     private void Do(Transform other) {
         if (other.TryGetComponent<Rigidbody2D>(out var rb)) {
             var pushVector = (other.position - transform.position).normalized;
-            rb.AddForce(pushVector * force);
+            rb.AddForce(pushVector * param);
         }
     }
 }

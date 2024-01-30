@@ -130,4 +130,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e38011279b99c048a1617fe22cfa61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponOffset: 0.6

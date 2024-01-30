@@ -16,6 +16,7 @@ public class Cycle : MonoBehaviour
     private async void DoCycle() {
         while (true) {
             await Task.Delay(changeRate);
+            if (this == null) break;
             OnCycle?.Invoke();
         }
     }

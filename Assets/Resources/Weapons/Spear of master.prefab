@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 4772343959340768981}
   - component: {fileID: 6339328828213793827}
   - component: {fileID: -6955897562165761999}
+  - component: {fileID: 385584837939422166}
   m_Layer: 6
   m_Name: Spear of master
   m_TagString: Untagged
@@ -249,6 +250,14 @@ MonoBehaviour:
     status: 2
   - component: {fileID: 2941788401789043895}
     status: 2
+  - component: {fileID: 465143538038257963}
+    status: 2
+  - component: {fileID: 2941788401789043895}
+    status: 2
+  - component: {fileID: 4931001175057708132}
+    status: 2
+  - component: {fileID: 4772343959340768981}
+    status: 2
 --- !u!114 &-9088970461538499853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071908d4e36c1674fa720c3fd2860c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20000
+  param: 0
 --- !u!114 &5005296208862593624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,10 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6174b02896cfa294aaab1ea5e14dda15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jointForce: 2000
-  jointTorque: 600
-  jointCorScale: 0.3
-  positionOffset: {x: 0.6, y: 0}
+  info: {fileID: 11400000, guid: d0c2ff3a12dd3b440bc580145951c436, type: 2}
 --- !u!114 &2941788401789043895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   duration: 100
-  finalOffset: {x: 0.5, y: -0.8}
+  finalOffset: {x: 0.8, y: -0.8}
   slerp: 0
 --- !u!114 &4772343959340768981
 MonoBehaviour:
@@ -386,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   duration: 100
-  finalOffset: {x: 0.5, y: -1.5}
+  finalOffset: {x: 0.8, y: -1.5}
   slerp: 0
 --- !u!114 &6339328828213793827
 MonoBehaviour:
@@ -424,4 +430,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca21ce61965032b4a8af7f61fe26e11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageMultiplier: 9
+  param: 0
+--- !u!114 &385584837939422166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235406995552962493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15261f52d0c1d4f469efc572661eea52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: {fileID: -6955897562165761999}
+  force: {fileID: 5609616086432630303}

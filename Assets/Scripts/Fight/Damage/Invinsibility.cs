@@ -16,6 +16,7 @@ public class Invinsibility : MonoBehaviour
     private async void Action(int _) {
         _health.enabled = false;
         await Task.Delay(invTime);
+        if (this == null || _health == null) return;
         _health.enabled = true;
     }
 }

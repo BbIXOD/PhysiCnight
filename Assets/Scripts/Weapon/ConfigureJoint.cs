@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class ConfigureJoint : MonoBehaviour
 {
-    private RelativeJoint2D _joint;
-    private WeaponData _data;
 
     private void Start() {
-        _joint = GetComponent<RelativeJoint2D>();
-        _data = GetComponent<WeaponData>();
+        var joint = GetComponent<RelativeJoint2D>();
+        var data = GetComponent<WeaponData>();
+        var rb = GetComponent<Rigidbody2D>();
 
-        _joint.autoConfigureOffset = false;
-        _joint.enableCollision = true;
-        _joint.maxForce = _data.jointForce;
-        _joint.maxTorque = _data.jointTorque;
-        _joint.correctionScale = _data.jointCorScale;
-        _joint.angularOffset = _data.isLeftHand ? 0 : 180;
-        _joint.linearOffset = _data.positionOffset;
+        joint.autoConfigureOffset = false;
+        joint.enableCollision = false;
+        joint.maxForce = data.info.jointForce;
+        joint.maxTorque = data.info.jointTorque;
+        joint.correctionScale = data.info.jointCorScale;
+        
+        var offset = data.info.positionOffset;
+        offset.x *= data.isLeftHand ? -1 : 1;
+
+        joint.angularOffset = 0;
+        joint.linearOffset = offset;
+
+        rb.TeleportTo(offset, 0); //TODO: move
     }
 }

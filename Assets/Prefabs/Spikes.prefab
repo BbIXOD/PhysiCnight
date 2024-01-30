@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8676212084400211879}
   - component: {fileID: 8676212084400211896}
   - component: {fileID: 8676212084400211897}
+  - component: {fileID: 2240420453142941490}
+  - component: {fileID: 1675630136535519924}
   m_Layer: 7
   m_Name: Spikes
   m_TagString: Untagged
@@ -30,13 +32,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676212084400211900}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.7, y: -2.93, z: -3.8461537}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8676212084400211898
 SpriteRenderer:
@@ -78,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 777f0cb7fe189344f8b13c26a60bba93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec9747c6540f034b95cdd4939465afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeRate: 1000
+  changeRate: 5000
 --- !u!114 &8676212084400211877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +130,25 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -168,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa81bcf52e72e5d46bb3522d9c985ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 15
+  param: 15
 --- !u!114 &8676212084400211897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,4 +202,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071908d4e36c1674fa720c3fd2860c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 200000
+  param: 80000
+--- !u!114 &2240420453142941490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676212084400211900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1675630136535519924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8676212084400211900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a62c6fb5666c9534f8ede4c8a67bc45e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components:
+  - component: {fileID: 8676212084400211897}
+    status: 2
+  - component: {fileID: 8676212084400211896}
+    status: 2
+  - component: {fileID: 8676212084400211879}
+    status: 2
+  - component: {fileID: 8676212084400211876}
+    status: 2
+  - component: {fileID: 8676212084400211877}
+    status: 2
