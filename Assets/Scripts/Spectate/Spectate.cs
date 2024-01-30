@@ -15,7 +15,7 @@ public class Spectate : MonoBehaviour
         _zPosition = spectator.position.z;
     }
 
-    private void Update() {
+    private void LateUpdate() {
         var desired = new Vector3(_spectated.position.x, _spectated.position.y, 
             keepZPosition ? _zPosition :  _spectated.position.z);
         
